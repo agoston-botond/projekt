@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garage</title>
+<style>
+  body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f2; color: #222; line-height: 1.6; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { margin: 0 0 10px; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 24px 20px 60px; }
+  .back { display: inline-block; margin-bottom: 20px; color: #777; }
+
+  /* ---- How pages work: only the page matching the link (#name) is shown ---- */
+  .page { display: none; }
+  .page:target { display: block; }
+  #start { display: block; }
+  body:has(.page:target) #start { display: none; }
+
+  /* ---- Landing picture ---- */
+  #start { text-align: center; padding: 60px 20px; }
+  .big-pic { display: block; max-width: 700px; margin: 0 auto 20px; padding: 80px 20px;
+             font-size: 90px; border-radius: 16px; background: linear-gradient(135deg, #1d2230, #d6352b); }
+  .big-pic:hover { opacity: .9; }
+
+  /* ---- Cards and pictures ---- */
+  .cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .card { background: white; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; }
+  a.card:hover { border-color: #d6352b; }
+  .card .text { padding: 14px 16px; }
+  .card p { margin: 0; color: #666; }
+  .pic { height: 120px; display: grid; place-items: center; font-size: 40px; color: white; }
+  .honda { background: #c8102e; }
+  .bmw   { background: #1c69d4; }
+  .audi  { background: #666; }
+  .merc  { background: #2f3a44; }
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; }
+  .gallery .pic { border-radius: 10px; }
+
+  /* ---- Layout A (Honda, Mercedes): text on top, models in a grid, gallery row ---- */
+  .layout-a .intro { margin-bottom: 24px; }
+
+  /* ---- Layout B (BMW): big banner, models as a list, big gallery ---- */
+  .layout-b .banner { padding: 50px 24px; border-radius: 14px; color: white; margin-bottom: 24px; }
+  .layout-b .cards { grid-template-columns: 1fr; }
+  .layout-b .gallery { grid-template-columns: 1fr 1fr; }
+  .layout-b .gallery .pic { height: 160px; }
+
+  /* ---- Layout C (Audi): description on the left, content on the right ---- */
+  .layout-c .columns { display: grid; grid-template-columns: 240px 1fr; gap: 30px; }
+  .layout-c .side { border-left: 4px solid #d6352b; padding-left: 16px; }
+  .layout-c .cards { grid-template-columns: 1fr 1fr; }
+  .layout-c .gallery { grid-template-columns: 1fr 1fr; }
+
+  /* ---- Phones ---- */
+  @media (max-width: 700px) {
+    .layout-c .columns { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. LANDING: click the picture to go to #home -->
+<section id="start">
+  <a class="big-pic" href="#home">🚗</a>
+  <h1>Garage</h1>
+  <p>Click the picture to enter.</p>
+</section>
+
+<!-- 2. HOME: three cards -->
+<section class="page" id="home">
+  <div class="wrap">
+    <a class="back" href="#">← Start</a>
+    <h1>Welcome</h1>
+    <div class="cards">
+      <a class="card" href="#history"><div class="text"><h3>📜 History</h3><p>How the brands began.</p></div></a>
+      <a class="card" href="#cars"><div class="text"><h3>🚗 Cars</h3><p>Brands, models and galleries.</p></div></a>
+      <a class="card" href="#contact"><div class="text"><h3>✉️ Contact us</h3><p>Get in touch.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. HISTORY -->
+<section class="page" id="history">
+  <div class="wrap">
+    <a class="back" href="#home">← Home</a>
+    <h1>History</h1>
+    <p>Write your history text here.</p>
+  </div>
+</section>
+
+<!-- 4. CONTACT -->
+<section class="page" id="contact">
+  <div class="wrap">
+    <a class="back" href="#home">← Home</a>
+    <h1>Contact us</h1>
+    <p>Email: hello@example.com</p>
+    <p>Phone: +36 1 234 5678</p>
+  </div>
+</section>
+
+<!-- 5. CARS: four brand cards -->
+<section class="page" id="cars">
+  <div class="wrap">
+    <a class="back" href="#home">← Home</a>
+    <h1>Cars</h1>
+    <div class="cards">
+      <a class="card" href="#honda"><div class="pic honda">🚗</div><div class="text"><h3>Honda</h3></div></a>
+      <a class="card" href="#bmw"><div class="pic bmw">🚗</div><div class="text"><h3>BMW</h3></div></a>
+      <a class="card" href="#audi"><div class="pic audi">🚗</div><div class="text"><h3>Audi</h3></div></a>
+      <a class="card" href="#mercedes"><div class="pic merc">🚗</div><div class="text"><h3>Mercedes-Benz</h3></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6a. HONDA (layout A) -->
+<section class="page" id="honda">
+  <div class="wrap layout-a">
+    <a class="back" href="#cars">← Cars</a>
+    <div class="intro">
+      <h1>Honda</h1>
+      <p>Reliable, efficient and easy to live with.</p>
+    </div>
+    <h2>Models</h2>
+    <div class="cards">
+      <div class="card"><div class="pic honda">🚗</div><div class="text"><h3>Civic</h3><p>Compact and fun.</p></div></div>
+      <div class="card"><div class="pic honda">🚗</div><div class="text"><h3>Accord</h3><p>Roomy family sedan.</p></div></div>
+      <div class="card"><div class="pic honda">🚗</div><div class="text"><h3>CR-V</h3><p>Practical SUV.</p></div></div>
+      <div class="card"><div class="pic honda">🚗</div><div class="text"><h3>NSX</h3><p>Hybrid supercar.</p></div></div>
+    </div>
+    <h2 style="margin-top:30px">Gallery</h2>
+    <div class="gallery">
+      <div class="pic honda">🚗</div><div class="pic honda">🚗</div><div class="pic honda">🚗</div><div class="pic honda">🚗</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6b. BMW (layout B) -->
+<section class="page" id="bmw">
+  <div class="wrap layout-b">
+    <a class="back" href="#cars">← Cars</a>
+    <div class="banner bmw">
+      <h1>BMW</h1>
+      <p>Driver-focused handling with luxury and performance.</p>
+    </div>
+    <h2>Models</h2>
+    <div class="cards">
+      <div class="card"><div class="text"><h3>3 Series</h3><p>The sport sedan benchmark.</p></div></div>
+      <div class="card"><div class="text"><h3>M3</h3><p>High-performance 3 Series.</p></div></div>
+      <div class="card"><div class="text"><h3>X5</h3><p>Large luxury SUV.</p></div></div>
+      <div class="card"><div class="text"><h3>i4</h3><p>Electric gran coupe.</p></div></div>
+    </div>
+    <h2 style="margin-top:30px">Gallery</h2>
+    <div class="gallery">
+      <div class="pic bmw">🚗</div><div class="pic bmw">🚗</div><div class="pic bmw">🚗</div><div class="pic bmw">🚗</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6c. AUDI (layout C) -->
+<section class="page" id="audi">
+  <div class="wrap layout-c">
+    <a class="back" href="#cars">← Cars</a>
+    <div class="columns">
+      <div class="side">
+        <h1>Audi</h1>
+        <p>Understated design, quattro all-wheel drive and clever technology.</p>
+      </div>
+      <div>
+        <h2>Models</h2>
+        <div class="cards">
+          <div class="card"><div class="pic audi">🚗</div><div class="text"><h3>A4</h3><p>Compact sedan.</p></div></div>
+          <div class="card"><div class="pic audi">🚗</div><div class="text"><h3>Q5</h3><p>Premium SUV.</p></div></div>
+          <div class="card"><div class="pic audi">🚗</div><div class="text"><h3>R8</h3><p>V10 supercar.</p></div></div>
+          <div class="card"><div class="pic audi">🚗</div><div class="text"><h3>e-tron GT</h3><p>Electric grand tourer.</p></div></div>
+        </div>
+        <h2 style="margin-top:30px">Gallery</h2>
+        <div class="gallery">
+          <div class="pic audi">🚗</div><div class="pic audi">🚗</div><div class="pic audi">🚗</div><div class="pic audi">🚗</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6d. MERCEDES-BENZ (layout A again) -->
+<section class="page" id="mercedes">
+  <div class="wrap layout-a">
+    <a class="back" href="#cars">← Cars</a>
+    <div class="intro">
+      <h1>Mercedes-Benz</h1>
+      <p>Comfort, engineering and prestige.</p>
+    </div>
+    <h2>Models</h2>
+    <div class="cards">
+      <div class="card"><div class="pic merc">🚗</div><div class="text"><h3>C-Class</h3><p>Compact luxury sedan.</p></div></div>
+      <div class="card"><div class="pic merc">🚗</div><div class="text"><h3>S-Class</h3><p>Flagship limousine.</p></div></div>
+      <div class="card"><div class="pic merc">🚗</div><div class="text"><h3>G-Class</h3><p>Off-road icon.</p></div></div>
+      <div class="card"><div class="pic merc">🚗</div><div class="text"><h3>AMG GT</h3><p>Sports car.</p></div></div>
+    </div>
+    <h2 style="margin-top:30px">Gallery</h2>
+    <div class="gallery">
+      <div class="pic merc">🚗</div><div class="pic merc">🚗</div><div class="pic merc">🚗</div><div class="pic merc">🚗</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
