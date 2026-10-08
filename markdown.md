@@ -14,3 +14,7 @@ A projektem a Pagani weboldal szerű weboldalról egy magyar autósshopnak szól
 - audi (fajták)
 - volkswagen (fajták)
 - toyota (fajták)
+
+##  Maga a weboldal:
+
+Lesz egy kezdő weboldal ahol a logóra rá kattintva tovább visz egy kövi weblapra. Ezen a következő weboldalon lesz 3 kártya, ami a autóshop történetéről fog szólni, az autók weboldalára és a kapcsolat felvétel weboldalára fog dobni. Az autós oldalon lesznek különféle autósmárkák autói, és hozzájuk egy link ami az adott autósmárka külön leíró weboldalára fog vinni.
